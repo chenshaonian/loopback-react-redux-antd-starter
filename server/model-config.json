@@ -46,7 +46,7 @@
     "public": false
   },
   "ACL": {
-    "dataSource": "memory",
+    "dataSource": "db",
     "public": true,
     "acls": [
       {
@@ -130,6 +130,10 @@
     "public": true
   },
   "Email": {
-    "dataSource": "email"
+    "dataSource": "db"
+  },
+  "Task": {
+    "dataSource": "db",
+    "public": true
   }
 }

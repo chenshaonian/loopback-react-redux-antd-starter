@@ -55,17 +55,17 @@
     },
     {
       "accessType": "EXECUTE",
-      "property": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
-      "permission": "ALLOW"
+      "permission": "ALLOW",
+      "property": "*"
     },
     {
       "accessType": "*",
-      "property": "*",
       "principalType": "ROLE",
       "principalId": "admin",
-      "permission": "ALLOW"
+      "permission": "ALLOW",
+      "property": "*"
     }
   ],
   "methods": {}
