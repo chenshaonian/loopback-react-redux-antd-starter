@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter, Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import { Table, Button } from 'antd';
 
 import '../css/ManagerPage.css';
@@ -81,6 +81,11 @@ class ManagerPage extends Component {
     }]
     return (!logged_in) ? (<Redirect to={{pathname: '/login', search: '?redirectUrl=/manager' }}/>) : (
       <div className="manager">
+        <Helmet>
+          <title>{this.props.intl.formatMessage({
+            id: 'manager.title'
+          })}</title>
+        </Helmet>
         <div className="manager-page"> 
           <h3><FormattedMessage id="manager.main.h3" defaultMessage="hehe"></FormattedMessage></h3>
           <Button type="primary" onClick={() => this.addTask()}>add Task</Button>
@@ -93,4 +98,4 @@ class ManagerPage extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ManagerPage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(injectIntl(ManagerPage)));
